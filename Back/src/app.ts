@@ -7,6 +7,7 @@ import { Server } from "socket.io";
 import { router } from "./routes";
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 const serverHttp = http.createServer(app);
@@ -21,7 +22,6 @@ io.on("connection", (socket) => {
   console.log(`user connected: ${socket.id}`);
 });
 
-app.use(express.json());
 app.use(router);
 
 app.get("/github", (req, res) => {
