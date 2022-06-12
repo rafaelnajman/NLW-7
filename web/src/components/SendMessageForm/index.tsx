@@ -3,6 +3,7 @@ import { VscGithubInverted, VscSignOut } from "react-icons/vsc";
 import { AuthContext } from "../../contexts/auth";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
+import { motion } from "framer-motion";
 
 export function SendMessageForm() {
   const { user, signOut } = useContext(AuthContext);
@@ -28,9 +29,13 @@ export function SendMessageForm() {
 
   return (
     <div className={styles.sendMessageFormWrapper}>
-      <div className={`${sucess ? styles.sucessMessage : styles.false}`}>
+      <motion.div
+        animate={{ opacity: sucess ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className={styles.sucessMessage}
+      >
         {sucess ? "Mensagem enviada com sucesso!" : ""}
-      </div>
+      </motion.div>
       <button onClick={signOut} className={styles.signOutButton}>
         <VscSignOut size="32" />
       </button>
