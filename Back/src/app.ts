@@ -31,9 +31,7 @@ app.get("/github", (req, res) => {
 });
 
 app.get("/signin/callback", (req, res) => {
-  const { code } = req.query;
-
-  res.json(code);
+  res.redirect("http://localhost:3000/signin/callback?code=" + req.query.code);
 });
 
 export { serverHttp, io };
