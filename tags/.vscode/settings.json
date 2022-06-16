@@ -1,0 +1,5 @@
+{
+    "elixir.credo.ignoreWarningMessages": true,
+    "elixir.credo.lintEverything": true,
+    "elixir.credo.strictMode": true
+}
